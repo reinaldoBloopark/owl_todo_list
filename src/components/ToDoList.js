@@ -1,11 +1,13 @@
 import { Component, tags } from "@odoo/owl";
-import { Task } from "./components/Task";
+import { Task } from "./Task";
 
 const TODO_LIST_TEMPLATE = tags.xml /* xml */ `
-<div class="task-list">
-  <t t-foreach="tasks" t-as="task" t-key="task.id">
-      <Task task="task"/>
-  </t>
+<div class="todo-app">
+  <div class="task-list">
+    <t t-foreach="tasks" t-as="task" t-key="task.id">
+        <Task task="task"/>
+    </t>
+  </div>
 </div>
 `;
 
@@ -27,6 +29,6 @@ export class ToDoList extends Component {
       isCompleted: true,
     },
   ];
-  static template = TODO_LIST_TEMPLATE;
   static components = { Task };
+  static template = TODO_LIST_TEMPLATE;
 }
